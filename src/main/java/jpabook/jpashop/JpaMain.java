@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.Order;
 
 public class JpaMain {
 
@@ -17,11 +18,8 @@ public class JpaMain {
         tx.begin();
 
         try {
-
-            Member member = new Member();
-            member.setName("C");
-
-            em.persist(member);
+            Order order = em.find(Order.class, 1L);
+            Long memberId = order.getMemberId();
 
             tx.commit();
         } catch (Exception e){
