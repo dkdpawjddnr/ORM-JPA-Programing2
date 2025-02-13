@@ -2,6 +2,9 @@ package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Member {
 
@@ -11,7 +14,9 @@ public class Member {
     private String name;
     private String city;
     private String street;
-    private String ziocode;
+    private String zipcode;
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
     public Long getId() {
         return id;
     }
@@ -44,11 +49,11 @@ public class Member {
         this.street = street;
     }
 
-    public String getZiocode() {
-        return ziocode;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public void setZiocode(String ziocode) {
-        this.ziocode = ziocode;
+    public void setZipcode(String ziocode) {
+        this.zipcode = ziocode;
     }
 }
