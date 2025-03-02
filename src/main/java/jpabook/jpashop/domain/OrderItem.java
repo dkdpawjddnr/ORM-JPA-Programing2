@@ -10,7 +10,7 @@ public class OrderItem {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "ORDER_ID")
+    @JoinColumn(name = "OERDER_ID")
     private Order order;
 
     @ManyToOne
@@ -18,8 +18,8 @@ public class OrderItem {
     private Item item;
 
     private int orderPrice;
-    private int count;
 
+    private int count;
     public Long getId() {
         return id;
     }
@@ -30,6 +30,18 @@ public class OrderItem {
 
     public int getOrderPrice() {
         return orderPrice;
+    }
+
+    public void setOrderPrice(int orderPrice) {
+        this.orderPrice = orderPrice;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public Order getOrder() {
@@ -46,17 +58,5 @@ public class OrderItem {
 
     public void setItem(Item item) {
         this.item = item;
-    }
-
-    public void setOrderPrice(int orderPrice) {
-        this.orderPrice = orderPrice;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
     }
 }

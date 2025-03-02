@@ -20,7 +20,6 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
-
     private LocalDateTime orderDate;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
@@ -61,4 +60,5 @@ public class Order {
     public void setStatus(OrderStatus status) {
         this.status = status;
     }
+
 }
